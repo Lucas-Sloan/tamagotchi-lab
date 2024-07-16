@@ -17,21 +17,59 @@
 
 /*-------------------------------- Constants --------------------------------*/
 
+const MAX_STAT = 10;
+const INTERVAL_TIME = 1000;
 
 
 /*---------------------------- Variables (state) ----------------------------*/
 
+let boredom = 0;
+let hunger = 0;
+let sleepiness = 0;
+let interval;
 
 
 /*------------------------ Cached Element References ------------------------*/
 
+const playButton = document.getElementById('play');
+const feedButton = document.getElementById('feed');
+const sleepButton = document.getElementById('sleep');
+const restartButton = document.getElementById('restart');
+const boredomStat = document.getElementById('boredom-stat');
+const hungerStat = document.getElementById('hunger-stat');
+const sleepinessStat = document.getElementById('sleepiness-stat');
+const message = document.getElementById('message');
 
 
 /*-------------------------------- Functions --------------------------------*/
 
+function updateStats() {
+    boredomStat.textContent = boredom;
+    hungerStat.textContent = hunger;
+    sleepinessStat.textContent = sleepiness;
+  }
 
 
 /*----------------------------- Event Listeners -----------------------------*/
 
-
+playButton.addEventListener('click', () => {
+    if (boredom > 0) boredom--;
+    updateStats();
+  });
+  
+  feedButton.addEventListener('click', () => {
+    if (hunger > 0) hunger--;
+    updateStats();
+  });
+  
+  sleepButton.addEventListener('click', () => {
+    if (sleepiness > 0) sleepiness--;
+    updateStats();
+  });
+  
+  restartButton.addEventListener('click', resetGame);
+  
+  
+  /* Initialize the game */
+  document.addEventListener('DOMContentLoaded', resetGame);
 
