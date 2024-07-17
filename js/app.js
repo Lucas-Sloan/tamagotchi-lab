@@ -50,7 +50,8 @@ function increaseStats() {
   boredom++;
   hunger++;
   sleepiness++;
-  updateStats();
+  render();
+  checkGameOver();
 }
 
 function resetGame() {
@@ -72,6 +73,15 @@ function checkGameOver() {
   }
 }
 
+function handleClick(stat) {
+  if(stat === 'boredom' && bordeom > 0) boredom--;
+  if(stat === 'hunger' && hunger > 0) hunger--;
+  if(stat === 'sleepiness' && sleepiness > 0) sleepiness--;
+}
+
+function render() {
+  updateStats();
+}
 
 
 
