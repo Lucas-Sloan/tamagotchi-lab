@@ -69,15 +69,22 @@
   button:active {
     background-color: #2e6bb6;
   }
+
+  .image-container {
+    position: relative;
+  }
   
   /* images */
   .game-graphic {
+    position: absolute;
+    top: 0;
+    left: 0;
     max-height: 33vmin;
     margin-bottom: 32px;
   }
   
   .hidden {
-    visibility: hidden;
+    display: none;
   }
   
   
