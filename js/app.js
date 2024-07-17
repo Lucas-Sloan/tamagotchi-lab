@@ -61,6 +61,10 @@ function resetGame() {
   updateStats();
   message.classList.add('hidden');
   restartButton.classList.add('hidden');
+
+  document.querySelector('img[src="./assets/ghost.png"]').classList.remove('hidden');
+  document.querySelector('img[src="./assets/surprise.png"]').classList.add('hidden');
+
   interval = setInterval(increaseStats, INTERVAL_TIME);
 }
 
