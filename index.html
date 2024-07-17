@@ -12,8 +12,9 @@
     <header>
       <h1>Tamagotchi</h1>
     </header>
-    <main>
+    <main class="main-content">
       <section class ="instructions">
+        <h2>How to Play:</h2>
         <ul>
           <li>Keep him alive</li>
           <li>Once any Stat goes to 10. You lose him</li>
@@ -22,48 +23,49 @@
           <li>Pressing Sleep reduces Sleep by 10</li>
         </ul>
       </section>
-      <!-- game interface / UI section -->
-      <section class="button-wrapper">
-        <button id="play">play</button>
-        <button id="feed">feed</button>
-        <button id="sleep">sleep</button>
-      </section>
-      <!-- game data section -->
-      <section class="stats-wrapper">
-        <p>Boredom: 
-          <span id="boredom-stat">...</span>
-        </p>
-        <p>Hunger: 
-          <span id="hunger-stat">...</span>
-        </p>
-        <p>Sleepiness:
-          <span id="sleepiness-stat">...</span>
-        </p>
-      </section>
-      <section class="game-message">
-        <h2 id="message" class="hidden">
-          You lost him
-        </h2>
-      </section>
       <!-- game display -->
       <section class="game-state-wrapper">
-        <div class="image-container">
-          <img 
-            class="game-graphic" 
-            alt="a ghost" 
-            src="./assets/ghost.png" 
-          />
-          <img 
-            class="game-graphic hidden" 
-            alt="surprised ghost" 
-            src="./assets/surprise.png" 
-          />
+        <div class="game-message">
+          <h2 id="message" class="hidden">
+            You lost him
+          </h2>
+        </div>
+        <div class="border-image">
+          <div class="image-container">
+            <img 
+              class="game-graphic" 
+              alt="a ghost" 
+              src="./assets/ghost.png" 
+            />
+            <img 
+              class="game-graphic hidden" 
+              alt="surprised ghost" 
+              src="./assets/surprise.png" 
+            />
+          </div>
         </div>
       </section>
-      <div>
+      <!-- game interface / UI section -->
+      <section class="button-stats">
+        <div class="button-wrapper">
+          <button id="play">Play</button>
+          <button id="feed">Feed</button>
+          <button id="sleep">Sleep</button>
+        </div>
+        <!-- game data section -->
+        <div class="stats-wrapper">
+          <h2>Boredom: 
+            <span id="boredom-stat">...</span>
+          </h2>
+          <h2>Hunger: 
+            <span id="hunger-stat">...</span>
+          </h2>
+          <h2>Sleepiness:
+            <span id="sleepiness-stat">...</span>
+          </h2>
+        </div>
         <button id="restart" class="hidden">Play Again</button>
-      </div>
-      
+      </section>
     </main>
   </body>
 </html>
