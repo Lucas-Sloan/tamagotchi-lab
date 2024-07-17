@@ -1,6 +1,3 @@
-// 1) Define the required variables used to track the state of the game.
-
-// 2) Store cached element references.
 
 // 3) Upon loading, the game state should be initialized, and a function should 
 //    be called to render this game state.
@@ -48,6 +45,34 @@ function updateStats() {
     hungerStat.textContent = hunger;
     sleepinessStat.textContent = sleepiness;
   }
+
+function increaseStats() {
+  boredom++;
+  hunger++;
+  sleepiness++;
+  updateStats();
+}
+
+function resetGame() {
+  boredom = 0;
+  hunger = 0;
+  sleepiness = 0;
+  updateStats();
+  message.classList.add('hidden');
+  restartButton.classList.add('hidden');
+  interval = setInterval(increaseStats, INTERVAL_TIME);
+}
+
+function checkGameOver() {
+  if (boredom >= MAX_STAT || hunger >= MAX_STAT || sleepiness >= MAX_STAT) {
+    clearInterval(interval);
+    message.textContent = "You lost him";
+    message.classList.remove('hidden');
+    restartButton.classList.remove('hidden')
+  }
+}
+
+
 
 
 /*----------------------------- Event Listeners -----------------------------*/
