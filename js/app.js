@@ -69,14 +69,19 @@ function checkGameOver() {
     clearInterval(interval);
     message.textContent = "You lost him";
     message.classList.remove('hidden');
+
+    document.querySelector('img[src="./assets/ghost.png"]').classList.add('hidden');
+    document.querySelector('img[src="./assets/surprise.png"]').classList.remove('hidden');
+
     restartButton.classList.remove('hidden')
   }
 }
 
 function handleClick(stat) {
-  if(stat === 'boredom' && bordeom > 0) boredom--;
-  if(stat === 'hunger' && hunger > 0) hunger--;
-  if(stat === 'sleepiness' && sleepiness > 0) sleepiness--;
+  if(stat === 'boredom') boredom = Math.max(boredom -2, 0);
+  if(stat === 'hunger') hunger = Math.max(hunger -5, 0);
+  if(stat === 'sleepiness') sleepiness = Math.max(sleepiness -10, 0);
+  render();
 }
 
 function render() {
@@ -87,24 +92,12 @@ function render() {
 
 /*----------------------------- Event Listeners -----------------------------*/
 
-playButton.addEventListener('click', () => {
-    if (boredom > 0) boredom--;
-    updateStats();
-  });
-  
-  feedButton.addEventListener('click', () => {
-    if (hunger > 0) hunger--;
-    updateStats();
-  });
-  
-  sleepButton.addEventListener('click', () => {
-    if (sleepiness > 0) sleepiness--;
-    updateStats();
-  });
-  
-  restartButton.addEventListener('click', resetGame);
+playButton.addEventListener('click', () => handleClick('boredom'));
+feedButton.addEventListener('click', () => handleClick('hunger'));
+sleepButton.addEventListener('click', () => handleClick('sleepiness'));
+restartButton.addEventListener('click', resetGame);
   
   
   /* Initialize the game */
-  document.addEventListener('DOMContentLoaded', resetGame);
+document.addEventListener('DOMContentLoaded', resetGame);
 
