@@ -6,7 +6,8 @@
   body {
     font-size: 16px;
     min-height: 100vh;
-    background-color: #e6e6e6;
+    background-color: gray;
+    color: white;
     font-family: system-ui, sans-serif;
     display: flex;
     flex-direction: column;
@@ -40,13 +41,13 @@
   
   .button-wrapper {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
   }
   
   .stats-wrapper {
-    display: grid;
+    display: flex;
     text-align: center;
-    grid-template-columns: repeat(3, 1fr);
+    justify-content: space-evenly;
   }
   
   .game-state-wrapper {
@@ -55,8 +56,13 @@
     justify-content: center;
     flex-direction: column;
     position: relative;
+    margin-left: 600px;
+    margin-right: 600px;
     height: 400px;
-    margin-top: 20px;
+    background-color: white;
+    border: 10px dashed black;
+    border-radius: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
   
   /* button styling*/
@@ -87,7 +93,6 @@
     justify-content: center;
     align-items: center;
     height: 300px;
-    margin-top: 20px;
   }
   
   /* images */
@@ -105,11 +110,11 @@
   }
   
 #restart {
-  margin-top: 400px;
+  margin-top: 20px;
 }
 
 #message {
- margin: 20px, 0;
+ margin-top: 20px;
  width: 100%;
  text-align: center;
  z-index: 2;
